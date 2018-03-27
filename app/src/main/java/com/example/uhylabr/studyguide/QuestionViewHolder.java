@@ -13,6 +13,7 @@ public class QuestionViewHolder extends RecyclerView.ViewHolder {
     public TextView questionCountry;
     public TextView countryQuestion;
     public ImageView countryImage;
+    public boolean isAnswerTrue;
 
     public QuestionViewHolder(View itemView, final Context context) {
         super(itemView);
@@ -21,16 +22,13 @@ public class QuestionViewHolder extends RecyclerView.ViewHolder {
         countryQuestion = (TextView) itemView.findViewById(R.id.country_question);
         countryImage = (ImageView) itemView.findViewById(R.id.country_image);
 
-        cardView.setOnClickListener(new View.OnClickListener() {
+        cardView.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int messageResId = 0;
-                Toast.makeText(context, questionCountry.getText(), Toast.LENGTH_SHORT).show();
-
-                //i know i need to fix this to get it to work correctly.  now is it a matter of
-                //creating a new method like checkAnswer() and then displays the toast?
-                if (isTrue==aTrue){
-                    messageResId=R.string.true_toast;
-                    Toast.makeText(MainActivity.this, messageResId, Toast.LENGTH_SHORT).show();
-                else {messageResId=R.string.false_toast;
-                    Toast.makeText(MainActivity.this, messageResId, Toast.LENGTH_SHORT).show();}}}});}}
+            public void onClick(View view){
+                int messageId=0;
+                if(isAnswerTrue){
+                    messageId=R.string.true_button;}
+                else{
+                        messageId=R.string.false_button;
+                    }
+                    Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show();}});}}

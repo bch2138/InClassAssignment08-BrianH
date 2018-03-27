@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -27,9 +28,11 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionViewHolder>{
         holder.questionCountry.setText(question.location);
         holder.countryQuestion.setText(question.question);
         holder.countryImage.setImageResource(question.photoId);
-        holder.countryAnswer.setText(question.isTrue);
+        holder.isAnswerTrue=question.isTrue;
     }
 
-    @Override
+
+
+        @Override
     public int getItemCount(){return questions.size();}}
 
